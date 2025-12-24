@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de bits</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="image/favicon.jpg" type="image/jpeg">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Conversor de Bits</h2>
+
+    <fieldset class="result">
+      <label for="valor">Digite o valor numérico:</label><br>
+      <input type="number" id="valor" placeholder="Ex: 1"><br><br>
+
+      <label>Escolha a unidade:</label><br>
+      <input type="radio" id="bps" name="unidade" value="bps">
+      <label for="bps">bps</label>
+      <input type="radio" id="kbps" name="unidade" value="kbps">
+      <label for="kbps">Kbps</label>
+      <input type="radio" id="mbps" name="unidade" value="mbps">
+      <label for="mbps">Mbps</label>
+      <input type="radio" id="gbps" name="unidade" value="gbps">
+      <label for="gbps">Gbps</label><br><br>
+
+      <div class="botao-container">
+        <button onclick="calcular()">Calcular</button>
+      </div>
+    </fieldset>
+
+    <fieldset class="result" id="boxResultado" style="display: none;">
+      <div id="resultado"></div>
+    </fieldset>
+  </div>
+
+  <script>
+    function copiarTexto(texto) {
+      navigator.clipboard.writeText(texto);
+    }
+
+    function calcular() {
+      const valor = parseFloat(document.getElementById("valor").value);
+      const unidade = document.querySelector('input[name="unidade"]:checked');
+      const resultado = document.getElementById("resultado");
+      const boxResultado = document.getElementById("boxResultado");
+
+      if (!unidade) {
+        resultado.innerHTML = "Por favor, selecione uma unidade.";
+        boxResultado.style.display = "block";
+        return;
+      }
+
+      if (isNaN(valor)) {
+        resultado.innerHTML = "Por favor, insira um número válido.";
+        boxResultado.style.display = "block";
+        return;
+      }
+
+      let bitsPorSegundo;
+      switch (unidade.value) {
+        case "gbps": bitsPorSegundo = valor * 1e9; break;
+        case "mbps": bitsPorSegundo = valor * 1e6; break;
+        case "kbps": bitsPorSegundo = valor * 1e3; break;
+        case "bps": bitsPorSegundo = valor; break;
+      }
+
+      const unidadeFormatada = unidade.value === "bps"
+        ? "bps"
+        : unidade.value.charAt(0).toUpperCase() + unidade.value.slice(1);
+
+      const porcentagens = {
+        "10%": bitsPorSegundo * 0.1,
+        "50%": bitsPorSegundo * 0.5,
+        "70%": bitsPorSegundo * 0.7,
+        "90%": bitsPorSegundo * 0.9
+      };
+
+      const kbps500 = 500 * 1000;
+      const porcentagem500kbps = ((kbps500 / bitsPorSegundo) * 100).toFixed(2);
+
+      resultado.innerHTML = `
+        <ul>
+          <li>
+            <strong>500 kbps:</strong><br>
+            <span class="highlight-500kbps"> ${kbps500.toLocaleString()} bps </span>
+            <button class="copy-btn" onclick="copiarTexto('${kbps500}')">Copiar</button>
+          </li>
+          <li>
+            <strong>Porcentagem de 500 kbps:</strong><br>
+            <span class="highlight-500porcentagem"> ${porcentagem500kbps}% </span>
+            <button class="copy-btn" onclick="copiarTexto('${porcentagem500kbps}%')">Copiar</button>
+          </li>
+          <li>
+            <strong>10%:</strong><br>
+            <span class="highlight-10"> ${porcentagens["10%"].toLocaleString()} bps </span>
+            <button class="copy-btn" onclick="copiarTexto('${porcentagens["10%"]}')">Copiar</button>
+          </li>
+          <li>
+            <strong>50%:</strong><br>
+            <span class="highlight-50"> ${porcentagens["50%"].toLocaleString()} bps </span>
+            <button class="copy-btn" onclick="copiarTexto('${porcentagens["50%"]}')">Copiar</button>
+          </li>
+          <li>
+            <strong>70%:</strong><br>
+            <span class="highlight-70"> ${porcentagens["70%"].toLocaleString()} bps </span>
+            <button class="copy-btn" onclick="copiarTexto('${porcentagens["70%"]}')">Copiar</button>
+          </li>
+          <li>
+            <strong>90%:</strong><br>
+            <span class="highlight-90"> ${porcentagens["90%"].toLocaleString()} bps </span>
+            <button class="copy-btn" onclick="copiarTexto('${porcentagens["90%"]}')">Copiar</button>
+          </li>
+        </ul>
+        <p><strong>${valor.toLocaleString()} ${unidadeFormatada}:</strong> ${bitsPorSegundo.toLocaleString()} bps</p>
+      `;
+
+      boxResultado.style.display = "block";
+    }
+  </script>
+</body>
+</html>

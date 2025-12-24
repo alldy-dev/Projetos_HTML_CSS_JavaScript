@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: rgb(135, 206, 250);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  max-width: 370px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, button {
+  padding: 8px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+#logovale {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin: 2px auto;
+}
+
+.botao-container {
+  display: flex;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  margin: 20px auto;
+  background-color: #e9ecef;
+  padding: 15px 30px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.result ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result li {
+  margin-bottom: 15px;
+}
+
+.result li span {
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.copy-btn {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2px 6px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: white;
+}
+
+.copy-btn:hover {
+  background-color: #0056b3;
+}
+
+.highlight-500kbps {
+  background-color: #66cc00;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.highlight-500porcentagem {
+  background-color: #83dcb4ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.highlight-10 {
+  background-color: #275a22;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: white;
+}
+
+.highlight-50 {
+  background-color: #ffff33;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.highlight-70 {
+  background-color: #ff9933;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.highlight-90 {
+  background-color: #ff0000;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: white;
+}

@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #87CEFA;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#logovale {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  width: 390px;
+}
+
+.input_line {
+  width: 100%;
+  box-sizing: border-box; /* garante que padding não ultrapasse os 100% */
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+.field {
+  background-color: rgb(246, 246, 246);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+}
+
+.field label {
+  margin-bottom: 5px;
+ 
+}
+
+
+.legenda {
+  background-color: white;
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#botao_gerar_usuario {
+  background-color: rgb(27, 196, 12);
+  width: 28%;
+  margin: 1px auto;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer; /* mostra a mãozinha */
+}
+
+.tacacs_titulo {
+  background-color: aqua;
+  text-align: center;
+  font-weight: bold;
+}
+
+.radius_titulo {
+  background-color: orange;
+  text-align: center;
+  font-weight: bold;
+}
+
+.botao_copiar {
+  background-color: rgb(27, 196, 12);
+  width: 20%;
+  margin: 1px auto;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer; /* mostra a mãozinha */
+}
